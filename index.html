@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/styles.css" rel="stylesheet" type="text/css" media="all">
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Conway's Game of Life</title>
+  </head>
+  <body>
+
+    <!-- NAV BAR -->
+    <nav id="nav">
+      <ul>
+        <li><a href="http://juliesteele.site44.com">Home</a></li>
+<!--         <li><a href="#">Contact</a></li>
+ -->      </ul>
+    </nav>
+
+    <div class="container">
+
+      <!-- HEADER -->
+      <h1 class="center">Conway's Game of Life</h1>
+      <!-- <h4 class="center">Created by <a href="http://juliesteele.site44.com" target="blank">Julie Steele</a> and <a href="http://stevenferguson.site44.com" target="blank">Steven Ferguson</a> --> </h4>
+      <hr>
+
+      <!-- HOW TO PLAY -->
+      <div class="row">
+        <button id="rules" class="btn btn-default">How to Play</button>
+      </div><br>
+
+      <!-- GAME INTERFACE -->
+      <div class="row">
+        <span id="play-button">
+          <button id="play" class="btn btn-primary">Play</button>
+        </span>
+        <!-- <span class="speed-buttons">
+          <button id="decrease-speed" class="btn btn-info hiding">&lsaquo;&lsaquo;</button>
+          <button id="increase-speed" class="btn btn-info hiding">&rsaquo;&rsaquo;</button>
+        </span> -->
+        <span class="space">&nbsp;</span>
+        <span id="pause-button">
+          <button id="pause" class="btn btn-primary">Pause</button>
+        </span>
+        <span class="space">&nbsp;</span>
+        <span id="step-button">
+          <button id="step" class="btn btn-primary">Step</button>
+        </span>
+        <span class="space">&nbsp;</span>
+        <button id="reset" class="btn btn-primary">Reset</button>
+      </div>
+      <div class="row speed-slider">
+        <label for="speed">Fast</label>
+        <input id="speed" type="range" min="100" max="1000" value = "400" step="100">
+        <label for="speed">Slow</label>
+      </div>
+      <table id="game-grid" class="pad-bottom"></table>
+
+      <!-- GAME COUNTER -->
+      <div class="row hiding">
+        <div class="col-4 pad-left">
+          Generations:
+          <div class="row">
+            <div class="col-12">
+              <span id="generation-counter"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          Population:
+          <div class="row">
+            <div class="col-12">
+              <span id="population"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          Population Max:
+          <div class="row">
+            <div class="col-12">
+              <span id="population-max"></span> at generation <span id="generation-max"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODAL -->
+      <div class="modal fade" id="rulesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Conway's Game of Life</h4>
+          </div>
+          <div class="modal-body">
+            <p><b>About the Game:</b></p>
+            <p>
+              Conway's Game of Life was devised by a mathematiciain named John Horton Conway in 1970.  It is a single-player game: the player creates a starting seed and observes as it evolves according to pre-set rules.
+            </p><br>
+
+            <p><b>To Play:</b>
+              <ul class="numbered">
+                <li>Click on the grid to generate living cells
+                  <ul class="alphabetic">
+                    <li>Make sure cells have neighbors - see <b>Rules</b> below</li>
+                  </ul>
+                </li>
+                <li><b>&lsaquo;Play&rsaquo;</b> starts continuous evolution</li>
+                <li><b>&lsaquo;Step&rsaquo;</b> steps forward a single generation</li>
+              </ul>
+            </p><br>
+
+            <p><b>The Rules:</b>
+              <ul class="numbered">
+                <li>Any live cell with less than two live neighbors dies (under-population)</li>
+                <li>Any live cell with two or three live neighbors survives</li>
+                <li>Any live cell with more than three live neighbors dies (over-population)</li>
+                <li>A dead cell with exactly three live neighbors becomes a live cell (reproduction)</li>
+                <li>Every cell has eight neighbors: vertical, horizontal, and diagonal</li>
+              </ul>
+            </p>
+
+            <button id="example" class="btn btn-default">Show Example</button>
+
+            <div class="row">
+              <img src="img/rules_animation.gif" id="rules-animation" class="hiding">
+            </div>
+
+            <p><em>For more information, see <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life" target="blank">Conway's Game of Life</a> on Wikipedia.</em></p>
+
+          </div>
+          <div class="modal-footer">
+            <button id="modal-close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <!-- FOOTER -->
+      <div id="footer">
+        <ul class="menu">
+          <li>&copy; 2013 Julie Steele</li>
+          <li class="with-spacing"><a href="mailto:julie.d.rose@gmail.com">julie.d.rose@gmail.com</a></li>
+        </ul>
+      </div>
+
+  </body>
+</html>
