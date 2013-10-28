@@ -1,4 +1,4 @@
-game_of_life_javascript
+Game of Life
 =======================
 
-Conway's Game of Life in JavaScript
+As developed by British mathematician John Conway - an interactive cellular automaton.  Constructed in JavaScript.
